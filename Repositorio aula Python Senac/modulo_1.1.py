@@ -18,15 +18,13 @@ while True:
     if frase == "sair":
             print("Saindo...")
             break
-    criptografada = criptografar(frase)
     discritor = open(lista, "a")
-    discritor.write(criptografada + "\n")  
+    discritor.write(criptografar(frase) + "\n")  
     discritor.close()
 
     discritor = open(lista, "r")
-    nomes_descriptografados = [descriptografar(linha.strip()) for linha in discritor.readlines()]
-    discritor.close()
 
     print("Nomes descriptografados:")
-    for nome in nomes_descriptografados:
-        print(nome)
+    for linha in discritor.readlines():
+         print(descriptografar(linha.strip()))
+    discritor.close()
