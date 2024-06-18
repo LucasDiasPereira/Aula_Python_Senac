@@ -1,13 +1,13 @@
 banco = "Função.txt"
 chave = 10
-nomes_descriptografados = []
 def preenchido():
     txt = open(banco, "a")
     frase = ''
     for letra in entrada:
         frase += chr((ord(letra) + chave) % 127)
-    txt.write(frase + "\n")
-    nomes_descriptografados = [acesso(linha.strip()) for linha in txt.readline()]
+    txt.write(frase + "\n") 
+    for linha in txt.readlines():
+        acesso(linha.strip())
     txt.close()
     return frase
 
