@@ -10,8 +10,8 @@ def criptografar(frase):
 def descriptografar(pessoa):
     frase = ''
     for letra in pessoa:
-        if letra=='\n':
-             frase+='\n'
+        if letra == '\n':
+            frase += '\n'
         else: 
             frase += chr((ord(letra) - valor_cripto) % 127)
     return frase
@@ -28,6 +28,6 @@ while True:
     discritor = open(lista, "r")
 
     print("Nomes descriptografados:")
-    for linha in discritor.read():
-        print(descriptografar(linha))
+    for linha in discritor.readlines():
+        print(descriptografar(linha), end='')
     discritor.close()
