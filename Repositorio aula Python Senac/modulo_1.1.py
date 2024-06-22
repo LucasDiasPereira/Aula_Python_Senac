@@ -4,10 +4,7 @@ lista = "Lista de pessoas.txt"
 def criptografar(frase):
     pessoa = ''
     for letra in frase:
-        if letra.isupper():  
-            pessoa += chr((ord(letra.lower()) + valor_cripto) % 127).upper()
-        else:
-            pessoa += chr((ord(letra) + valor_cripto) % 127)
+        pessoa += chr((ord(letra) + valor_cripto) % 127)
     return pessoa
 
 def descriptografar(pessoa):
@@ -17,7 +14,7 @@ def descriptografar(pessoa):
              frase+='\n'
         else: 
             frase += chr((ord(letra) - valor_cripto) % 127)
-    return frase.capitalize()
+    return frase
 
 while True:
     frase = input("Digite o nome ou 'sair' para fechar: ")
