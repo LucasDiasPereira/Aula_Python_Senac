@@ -4,14 +4,20 @@ lista = "Lista de pessoas.txt"
 def criptografar(frase):
     pessoa = ''
     for letra in frase:
-        pessoa += chr((ord(letra) + valor_cripto) % 127)
+        if letra.isupper():  
+            pessoa += chr((ord(letra.lower()) + valor_cripto) % 127).upper()
+        else:
+            pessoa += chr((ord(letra) + valor_cripto) % 127)
     return pessoa
 
 def descriptografar(pessoa):
     frase = ''
     for letra in pessoa:
-        frase += chr((ord(letra) - valor_cripto) % 127)
-    return frase
+        if letra=='\n':
+             frase+='\n'
+        else: 
+            frase += chr((ord(letra) - valor_cripto) % 127)
+    return frase.capitalize()
 
 while True:
     frase = input("Digite o nome ou 'sair' para fechar: ")
@@ -25,6 +31,6 @@ while True:
     discritor = open(lista, "r")
 
     print("Nomes descriptografados:")
-    for linha in discritor.readlines():
-         print(descriptografar(linha.strip()))
+    for linha in discritor.read():
+        print(descriptografar(linha))
     discritor.close()
