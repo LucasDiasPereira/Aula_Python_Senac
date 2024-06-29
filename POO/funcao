@@ -1,0 +1,58 @@
+class Carro ():
+    marca = ''
+    modelo = ''
+    ano = 2001
+    cor = ''
+    motor = False
+    velocidade = 0
+
+    def __init__(self,_marca=None,_modelo=None,_ano=None,_cor=None):
+        self.marca = _marca
+        self.modelo = _modelo
+        self.ano = _ano
+        self.cor = _cor
+    def ligar_motor(self):
+        print('Motor ligado')
+        self.motor = True
+    def desligar_motor(self):
+        print('Motor desligado')
+        self.motor = False
+    def status_motor(self):
+        print(self.motor)
+    def acelerar(self):
+        if self.motor == True:
+            print('Acelerando')
+            for self.velocidade in range(0,100):
+                self.velocidade += 5
+        else:
+            print('Motor esta desligado')
+
+carros = []
+while True:
+    menu = input("\n\nBem vindo ao menu de carros:\n1- Criar Carro\n2- Selecionar Carro\n3- Para fechar o menu\nEscolha uma opção: ")
+    if menu == '1':
+        marca = input('Digite a marca do carro: ')
+        modelo = input('Digite o modelo do carro: ')
+        ano = input('Digite o ano do carro: ')
+        cor = input('Digite a cor do carro: ')
+        carro = Carro(_marca = marca,_modelo = modelo,_ano = ano,_cor = cor)
+        carros.append(carro)
+    elif menu == '2':
+        selecionar_carro = int(input("\nSelecione o carro: "))
+        carro_selecionado = carros[selecionar_carro - 1]
+        print(carro_selecionado.marca,carro_selecionado.modelo,carro_selecionado.ano,carro_selecionado.cor)
+        opcao = input('\nEscolha uma opção:\n1- Ligar Motor\n2- Desligar Motor\n3- Status Motor\n4- Acelerar')
+        if opcao == '1':
+            carro.ligar_motor()
+        elif opcao == 2:
+            carro.desligar_motor()
+        elif opcao == 3:
+            carro.status_motor()
+        elif opcao == 4:
+            carro.acelerar()
+    elif menu == '3':
+        print("Fechando o menu!!!")
+        break
+    else:
+        print('Selecione uma opção valida')
+
