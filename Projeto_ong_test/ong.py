@@ -3,10 +3,8 @@ class ONG():
         self.nome = nome
         self.projetos = []
 
-    def adicionar_projeto(self, projeto):
-        self.projeto = projeto
-        projeto = input("Adicione um projeto a ONG: ")
-        self.projetos.append(projeto)
+    def adicionar_projeto(self,nome,descricao,responsavel,status):
+        self.projetos.append(nome,descricao,responsavel,status)
 
     def listar_projetos(self):
         print(self.projeto)
@@ -66,10 +64,13 @@ while True:
         if ong_do_projeto < 0 or ong_do_projeto > len(gerenciador.ongs):
             print("Ong não encontrada")
         else:
-            novo_projeto = Projeto
-            novo_projeto = input("Digite o nome do projeto: ")
-            ong = ONG.adicionar_projeto(nome,descricao,responsavel,status)
+            nome = input("Digite o nome do projeto: ")
+            descricao = input("Digite a descrição do projeto: ")
+            responsavel = input("Digite o nome do responsável pelo projeto: ")
+            status = input("Digite o status do projeto: ")
+            gerenciador.ONG[ong_do_projeto].adicionar_projeto(nome,descricao,responsavel,status)
             print(f"O projeto {nome} foi cadastrado com sucesso!")
+            
 
     elif opcao == 3:
         gerenciador.listar_ongs()
