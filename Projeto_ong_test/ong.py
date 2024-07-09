@@ -66,9 +66,10 @@ while True:
         if ong_do_projeto < 0 or ong_do_projeto > len(gerenciador.ongs):
             print("Ong não encontrada")
         else:
-            projeto = input("Digite o nome do projeto: ")
-            ong = ONG.adicionar_projeto(projeto)
-            print(f"O projeto {projeto} foi cadastrado com sucesso!")
+            novo_projeto = Projeto
+            novo_projeto = input("Digite o nome do projeto: ")
+            ong = ONG.adicionar_projeto(nome,descricao,responsavel,status)
+            print(f"O projeto {nome} foi cadastrado com sucesso!")
 
     elif opcao == 3:
         gerenciador.listar_ongs()
