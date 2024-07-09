@@ -61,15 +61,14 @@ while True:
 
     elif opcao == 2:
         print("Em qual ONG vamos cadastrar o projeto? ")
-        for ong in gerenciador.ongs:
-            print(f"{gerenciador.ong + 1} - {ong.nome}")
-            ong_do_projeto = int(input("\nSelecione: \n")) - 1
-            if ong_do_projeto < 0 or ong_do_projeto > len(gerenciador.ongs):
-                print("Ong não encontrada")
-            else:
-                projeto = input("Digite o nome do projeto: ")
-                ong = ONG.adicionar_projeto(projeto)
-                print("Projeto cadastrado com sucesso!")
+        gerenciador.listar_ongs()
+        ong_do_projeto = int(input("\nSelecione: \n")) - 1
+        if ong_do_projeto < 0 or ong_do_projeto > len(gerenciador.ongs):
+            print("Ong não encontrada")
+        else:
+            projeto = input("Digite o nome do projeto: ")
+            ong = ONG.adicionar_projeto(projeto)
+            print(f"O projeto {projeto} foi cadastrado com sucesso!")
 
     elif opcao == 3:
         gerenciador.listar_ongs()
