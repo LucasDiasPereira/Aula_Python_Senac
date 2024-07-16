@@ -15,14 +15,11 @@ def api(url):
     http_request.request('GET', url)
     response = http_request.getresponse()
     resposta_byte = response.read()
-    print(resposta_byte)
+    # print(resposta_byte)
     json_ = json.loads(resposta_byte)
     return json_
 
 while True:
-    # ano = input('Ano: ')
-    # json_feriado = api(f"/api/feriados/v1/{ano}")
-    # print_json(json_feriado)
     cep = input("Digite seu CEP: ")
     json_cep = api(f"/api/cep/v1/{cep}")
     print_json(json_cep)
