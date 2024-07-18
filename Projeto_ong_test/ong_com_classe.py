@@ -30,17 +30,17 @@ class Gerenciado:
             for projeto in ong['projetos']:
                 ong.projetos.append(Projeto(projeto['nome'], projeto['descricao'], projeto['responsavel'], projeto['status']))
                 ong.adicionar_projeto(projeto)
-            self.adcionar_ong(ong)
+            self.adicionar_ong(ong)
     
     def adicionar_ong(self, ong):
         self.ongs.append(ong)
 
-    def imprimir(self):
+    def printa(self):
         for ong in self.ongs:
             print(f"ONG: {ong.nome}")
             for projeto in ong.projetos:
                 print(f"  - {projeto.nome}")
-            print()
+            
 
 gerenciado = Gerenciado()
-gerenciado.imprimir()
+gerenciado.printa()
