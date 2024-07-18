@@ -7,16 +7,18 @@ class ONG:
         self.projetos = []
 
 class Projeto:
-    def __init__(self, nome):
+    def __init__(self, nome, descricao, responsavel, status):
         self.nome = nome.capitalize()
+        self.descricao = descricao
+        self.responsavel = responsavel
+        self.status = status
 
 class Gerenciado:
     def __init__(self):
-        self.ongs = self.api()
+        self.ongs = []
+        self.api()
 
     def api(self):
-        ongs = []
-
         http_request = http.client.HTTPSConnection('api.jsonbin.io')
         http_request.request('GET', '/v3/b/66985766acd3cb34a8679cdf')['record']
         response = http_request.getresponse()
@@ -26,7 +28,7 @@ class Gerenciado:
         for ong in json_:
             ong = ONG(ong['nome'])
             for projeto in ong['projetos']:
-                ong.projetos.append(Projeto(projeto['nome']))
+                ong.projetos.append(Projeto(projeto['nome'], projeto['descricao'], projeto['responsavel'], projeto['status']))
                 ong.adicionar_projeto(projeto)
             self.adcionar_ong(ong)
     
