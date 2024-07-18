@@ -29,7 +29,6 @@ class Gerenciado:
             ong = ONG(ong['nome'])
             for projeto in ong['projetos']:
                 ong.projetos.append(Projeto(projeto['nome'], projeto['descricao'], projeto['responsavel'], projeto['status']))
-                ong.adicionar_projeto(projeto)
             self.adicionar_ong(ong)
     
     def adicionar_ong(self, ong):
