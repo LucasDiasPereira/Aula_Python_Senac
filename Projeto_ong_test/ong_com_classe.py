@@ -20,16 +20,16 @@ class Gerenciado:
 
     def api(self):
         http_request = http.client.HTTPSConnection('api.jsonbin.io')
-        http_request.request('GET', '/v3/b/66985766acd3cb34a8679cdf')['record']
+        http_request.request('GET', '/v3/b/66985766acd3cb34a8679cdf')
         response = http_request.getresponse()
         resposta_byte = response.read()
-        json_ = json.loads(resposta_byte)
+        json_ = json.loads(resposta_byte)['record']
         
-        for ong in json_:
-            ong = ONG(ong['nome'])
+        for ong in json_['ongs']:
+            ong_ = ONG(ong['nome'])
             for projeto in ong['projetos']:
-                ong.projetos.append(Projeto(projeto['nome'], projeto['descricao'], projeto['responsavel'], projeto['status']))
-            self.adicionar_ong(ong)
+                ong_.projetos.append(Projeto(projeto['nome'], projeto['descricao'], projeto['responsavel'], projeto['status']))
+            self.adicionar_ong(ong_)
     
     def adicionar_ong(self, ong):
         self.ongs.append(ong)
