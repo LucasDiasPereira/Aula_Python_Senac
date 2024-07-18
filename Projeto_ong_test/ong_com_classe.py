@@ -28,11 +28,19 @@ class Gerenciado:
         for ong in json_['ongs']:
             ong_ = ONG(ong['nome'])
             for projeto in ong['projetos']:
-                ong_.projetos.append(Projeto(projeto['nome'], projeto['descricao'], projeto['responsavel'], projeto['status']))
+                ong_.projetos(Projeto(projeto['nome'], projeto['descricao'], projeto['responsavel'], projeto['status']))
+                ong_.adicionar_projeto(projeto)
             self.adicionar_ong(ong_)
     
     def adicionar_ong(self, ong):
         self.ongs.append(ong)
+
+    def adiconar_projeto(self,ong_):
+        self.nome.append(ong_)
+        self.descricao.append(ong_)
+        self.responsavel.append(ong_)
+        self.status.append(ong_)
+
 
     def printa(self):
         for ong in self.ongs:
