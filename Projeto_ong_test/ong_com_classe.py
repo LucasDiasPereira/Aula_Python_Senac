@@ -39,6 +39,9 @@ class Gerenciado:
             print(f"ONG: {ong.nome}")
             for projeto in ong.projetos:
                 print(f"  - {projeto.nome}")
+                print(f"    - {projeto.descricao}")
+                print(f"    - {projeto.responsavel}")
+                print(f"    - {projeto.status}")
             
 
 gerenciado = Gerenciado()
