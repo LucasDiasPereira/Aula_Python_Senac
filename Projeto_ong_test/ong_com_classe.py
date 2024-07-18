@@ -6,6 +6,9 @@ class ONG:
         self.nome = nome.capitalize()
         self.projetos = []
 
+    def adiconar_projeto(self,projeto):
+        self.projetos.append(projeto)
+
 class Projeto:
     def __init__(self, nome, descricao, responsavel, status):
         self.nome = nome.capitalize()
@@ -35,11 +38,7 @@ class Gerenciado:
     def adicionar_ong(self, ong):
         self.ongs.append(ong)
 
-    def adiconar_projeto(self,ong_):
-        self.nome.append(ong_)
-        self.descricao.append(ong_)
-        self.responsavel.append(ong_)
-        self.status.append(ong_)
+
 
 
     def printa(self):
