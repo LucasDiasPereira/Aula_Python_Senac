@@ -7,7 +7,7 @@ cachorros = []
 
 while True:
     print(menuzinho())
-    opcao = menuzinho()
+   opcao = int(input("Digite uma opção: "))
 
     if opcao == 1:
         humano = cadastrar_humano()
