@@ -4,4 +4,4 @@ def menuzinho():
         print("2. Cadastrar Cachorro")
         print("3. Listar Humanos")
         print("4. Listar Cachorros")
-        print("5. Sair\n\n")
+        print("5. Sair\n")
