@@ -24,10 +24,10 @@ def cadastrar_cachorro():
 def listar_humanos(humanos):
     print("Lista de Humanos:")
     for i, humano in enumerate(humanos):
-        print(f"{i+1}. {humano.nome} - {humano.tamanho} - {humano.cor} - {humano.peso} - Coração:{humano.coracao} - Racional:{humano.racional}")
+        print(f"{i+1}. {humano.info}")
 
 
 def listar_cachorros(cachorros):
     print("Lista de Cachorros:")
     for i, cachorro in enumerate(cachorros):
-        print(f"{i+1}. {cachorro.nome} - {cachorro.tamanho} - {cachorro.cor} - {cachorro.peso} - Coração:{cachorro.coracao} - Racional:{cachorro.racional} {cachorro.raca}")
+        print(f"{i+1}. {cachorro.info}")
